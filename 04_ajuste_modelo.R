@@ -73,13 +73,12 @@ vif(modelo)
 
 ## Obtenção dos coeficientes padronizados
 # Util para saber qual a variavel mais relevenate para o modelo
-# lm.beta(modelo) biblioteca não disponivel para essa versao do r
+lm.beta(modelo)
 
 ## AIC e BIC - Comparação entre quaisquer modelos - AIC Criterio de informacao de akaike, BIC Criterio de informacao beysiano;
 # Quanto menor melhor
 AIC(modelo)
 BIC(modelo)
-# Para comparacao entre modelos, colocar os modelos como argumento das funções
 
 ### Graficos #####################################################################################################################################################################################################################################################################
 # Gráfico de dispersão

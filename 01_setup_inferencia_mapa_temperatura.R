@@ -6,7 +6,8 @@
 ## adptado por: Everton Peixoto                                ###
 ## contato:                                                    ###
 ## instagram:                                                  ###
-##################################################################### Limpar a memória #####################################################################################################################################################################################################################################################################
+
+### Limpar a memória #####################################################################################################################################################################################################################################################################
 rm(list = ls())
 
 ### Remover notação cientifica #####################################################################################################################################################################################################################################################################
@@ -14,7 +15,7 @@ rm(list = ls())
 options(scipen = 999, digits = 10)
 
 ### Definindo o diretório de trabalho #####################################################################################################################################################################################################################################################################
-setwd('C:/Users/Flávia Cristina/Documents/pos/estatistica/Dados Metereologicos/inferencia_estatisica')
+setwd('C:/Users/Flávia Cristina/Documents/02_Data_Science/02_Inferencia_Estatistica/inferencia_estatistica')
 
 ### Bibliotecas #####################################################################################################################################################################################################################################################################
 # Em uso
@@ -24,25 +25,21 @@ library(raster)  #Para ler e manipular dados espaciais
 library(fields)  #Para acessar paleta de cores
 library(ggspatial) #Para adicionar os elementos do mapa
 library(tidyverse) # Manipulação de dados
-
-library(RPostgreSQL) # Conexão ao bd
-
-library(usethis) # GitHub
-library(ggplot2) # Gráficos
-library(patchwork) # Mosaico de gráficos
-
-### Conexão o Banco de Dados #####################################################################################################################################################################################################################################################################
-nome_banco <- "XXXXXXXXX"
-
-conexao_bd <- dbConnect(dbDriver("PostgreSQL"),
-                        dbname = nome_banco,
-                        host = "XXXXXXX",
-                        port = XXXXXX,
-                        user = "XXXXXXXX",
-                        password = "XXXXXXXX")
-
-# Lista das tabelas presentes no Banco de dados
-tabelas <- dbGetQuery(conexao_bd, "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_type = 'BASE TABLE'")
+library(sf) #Trabalhar com dados espaciais
+library(leaflet) #Mapas interativos
+library(caret) # Biblioteca para regressão
+library(patchwork) # Mosaico de graficos
+library(car) # Teste normalidade (Durbin-Watson)
+library(lmtest) # Teste Homocedasticidade (Breusch-Pagan)
+library(psych) # Pairplot
+# library(QuantPsych) # Funcao lm.beta - coeficientes padronizados, util para saber qual a variavel mais relevenate para o modelo
 
 
+
+# Pressupostos da regressão linear:
+# relação linear entre as variaveis;
+# normalidade;
+# homocedasticidade;
+# ausencia de outliers;
+# indepedencia dos residuos
 

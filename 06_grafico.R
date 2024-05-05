@@ -1,8 +1,6 @@
-#########################################
-#####   Plotando o mapa            ######
-#########################################
+### Mapa #####################################################################################################################################################################################################################################################################
 ggplot(data=temp.mg)+ #Informando os dados de temperatura
-        geom_raster(aes(long,lat,fill=temp.cat))+#Definindo colunas de dados e plotando a temperatura
+        geom_raster(aes(longitude,latitude,fill=temp.cat))+#Definindo colunas de dados e plotando a temperatura
         geom_sf(data = mg,fill='NA')+ #Sobrepondo o limite territorial de Minas Gerais
         scale_fill_manual(values = tim.colors(9))+ #Alterando as cores
         annotation_scale()+ #Inserindo escala no Mapa
